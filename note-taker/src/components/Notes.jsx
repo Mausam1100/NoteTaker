@@ -15,7 +15,7 @@ function Notes() {
     useEffect(() => {
         const fetchData = async() => {
             try {
-              const response = await axios.get('/api/v1/user/notes')
+              const response = await axios.get('https://notetaker-server.vercel.app/api/v1/user/notes')
               setNotes(response.data.data);
             } catch (error) {
               console.log(error);

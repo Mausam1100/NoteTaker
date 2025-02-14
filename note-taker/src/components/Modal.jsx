@@ -11,7 +11,7 @@ function Modal({setShowModal}) {
 
     const handleLogOut = async() => {
         try {
-            const response = await axios.post("/api/v1/user/logout", token, {
+            const response = await axios.post("https://notetaker-server.vercel.app/api/v1/user/logout", token, {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${token}`, 
