@@ -5,8 +5,7 @@ const cookieParser = require('cookie-parser')
 
 app.use(cors({
     origin: 'https://notetaker-client.vercel.app',
-    credentials: true,  // Allow credentials (cookies, etc.)
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, 
 }));
 
 app.use(express.json())
