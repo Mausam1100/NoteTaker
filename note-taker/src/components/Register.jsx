@@ -31,7 +31,7 @@ function Register() {
     e.preventDefault()
 
     try {
-      const response = await axios.post('https://notetaker-server.vercel.app/api/v1/user/register', formData)
+      const response = await axios.post('/api/v1/user/register', formData)
       navigate('/login')
       toast.success(response.data.message)
     } catch (error) {

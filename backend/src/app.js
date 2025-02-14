@@ -4,7 +4,7 @@ const cors = require("cors")
 const cookieParser = require('cookie-parser')
 
 app.use(cors({
-    origin: 'https://notetaker-client.vercel.app',
+    origin: 'http://localhost:5175',
     credentials: true, 
 }));
 

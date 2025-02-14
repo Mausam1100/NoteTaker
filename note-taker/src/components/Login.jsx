@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault()
 
     try {
-      const response = await axios.post("https://notetaker-server.vercel.app/api/v1/user/login", formData)
+      const response = await axios.post("/api/v1/user/login", formData)
 
       if (response.data.data.accessToken) {
         setIsLogin(true)

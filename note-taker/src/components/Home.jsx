@@ -26,8 +26,8 @@ function Home() {
         e.preventDefault()
         try {
             const response = editId
-                ? await axios.put(`https://notetaker-server.vercel.app/api/v1/user/save-note/${editId}`, formData)
-                : await axios.post('https://notetaker-server.vercel.app/api/v1/user/save-note', formData)
+                ? await axios.put(`/api/v1/user/save-note/${editId}`, formData)
+                : await axios.post('/api/v1/user/save-note', formData)
             toast.success(response.data.message)
             setFormData({
                 topic: "",

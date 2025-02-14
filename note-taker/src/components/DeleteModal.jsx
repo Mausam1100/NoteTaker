@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 function DeleteModal({setShowModal, deleteId, setNotes}) {
     const handleDelete = async() => {
         try {
-            const response = await axios.delete(`https://notetaker-server.vercel.app/api/v1/user/delete-note/${deleteId}`)
+            const response = await axios.delete(`/api/v1/user/delete-note/${deleteId}`)
 
             if(response.status === 200) {
                 setNotes((prevNote) => {
