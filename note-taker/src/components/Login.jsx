@@ -58,7 +58,7 @@ function Login() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="email">
                 <div className='py-2'>Email or username </div>
-                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' onChange={handleChange} value={formData.email} name="emailUsername" placeholder='Email or username' id='emailUsername' required />
+                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' onChange={handleChange} value={formData.emailUsername} name="emailUsername" placeholder='Email or username' id='emailUsername' required />
               </label>
               <label htmlFor="password">
                 <div className='py-2'>Password</div>
