@@ -1,21 +1,26 @@
-const express = require("express")
-const app = express()
-const cors = require("cors")
-const cookieParser = require('cookie-parser')
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const cookieParser = require('cookie-parser');
 
+// CORS middleware with options
 app.use(cors({
-    origin: 'https://notetaker-client.vercel.app',  // Allow only this specific origin
-    credentials: true,  // Allow credentials (cookies, etc.)
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow the necessary HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // Allow the necessary headers
-  }));
+  origin: 'https://notetaker-client.vercel.app',  // Allow this specific origin
+  credentials: true,  // Allow credentials (cookies, etc.)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // Allow specific headers
+}));
 
-app.use(express.json())
-app.use(cookieParser())
-app.use(express.urlencoded({extended: false}))
+// Body parsers
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 
-const userRouter = require('./routes/user.routes')
+// Handle preflight (OPTIONS) request globally
+app.options('*', cors());  // Enable CORS preflight for all routes
 
-app.use('/api/v1/user', userRouter)
+// Routes
+const userRouter = require('./routes/user.routes');
+app.use('/api/v1/user', userRouter);
 
-module.exports = app
+module.exports = app;
