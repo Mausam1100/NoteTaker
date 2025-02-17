@@ -97,6 +97,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
 
     const option ={
         httpOnly: true,
+        sameSite: none,
         secure: false
     }
 
