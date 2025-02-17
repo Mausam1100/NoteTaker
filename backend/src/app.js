@@ -4,7 +4,7 @@ const cors = require("cors")
 const cookieParser = require('cookie-parser')
 
 app.use(cors({
-    origin: 'http://localhost:5175',
+    origin: 'https://notetaker-client.onrender.com',
     credentials: true, 
 }));
 
