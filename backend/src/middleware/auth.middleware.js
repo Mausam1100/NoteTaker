@@ -5,7 +5,8 @@ const ApiError = require('../utils/apiError')
 
 const verifyJWT = asyncHandler( async(req, res, next) => {
     try {
-        const token = req.cookies?.accessToken || req.headers['authorization'].replace("Bearer ", "").slice(1, -1)
+        const token = req.cookies?.accessToken || req.headers['authorization'].replace("Bearer ", "")
+        console.log(token);
         if(!token) {
             return ApiError(res, "Unauthorized request")
         }
@@ -19,7 +20,6 @@ const verifyJWT = asyncHandler( async(req, res, next) => {
         if (!user) {
             return ApiError(res, "Wrong access token")
         }
-        
         req.user = user
         next()
     } catch (error) {

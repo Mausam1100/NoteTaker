@@ -11,12 +11,7 @@ function Modal({setShowModal}) {
 
     const handleLogOut = async() => {
         try {
-            const response = await api.post("/api/v1/user/logout", token, {
-                withCredentials: true,
-                headers: {
-                    Authorization: `Bearer ${token}`, 
-                },
-            })
+            const response = await api.post("/api/v1/user/logout", {})
             
             if (response.data.success) {
                 setIsLogin(false)

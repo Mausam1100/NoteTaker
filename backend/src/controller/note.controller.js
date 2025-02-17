@@ -37,6 +37,10 @@ const saveNote = asyncHandler(async (req, res) => {
 })
 
 const getNotes = asyncHandler(async (req, res) => {
+    if (!req.user || !req.user._id) {
+        return ApiError(res, "User not authenticated", 401);
+    }
+    
     try {
         const user = await Note.aggregate([
             {
