@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Search, Pencil, SquarePen, Eye, Copy, Trash2 } from "lucide-react";
-import axios from 'axios'
 import moment from 'moment'
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
+import api from './api';
 
 function Notes() {
     const [notes, setNotes] = useState([])
@@ -15,7 +15,7 @@ function Notes() {
     useEffect(() => {
         const fetchData = async() => {
             try {
-              const response = await axios.get('/api/v1/user/notes')
+              const response = await api.get('/api/v1/user/notes')
               setNotes(response.data.data);
             } catch (error) {
               console.log(error);

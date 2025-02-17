@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import axios from 'axios'
 import toast from 'react-hot-toast';
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from '../App';
+import api from './api';
 
 
 function Login() {
@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault()
 
     try {
-      const response = await axios.post("/api/v1/user/login", formData)
+      const response = await api.post("/api/v1/user/login", formData)
 
       if (response.data.data.accessToken) {
         setIsLogin(true)

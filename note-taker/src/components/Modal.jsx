@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import axios from 'axios'
 import toast from 'react-hot-toast';
 import { UserContext } from '../App';
 import { useNavigate } from 'react-router-dom';
+import api from './api';
 
 function Modal({setShowModal}) {
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ function Modal({setShowModal}) {
 
     const handleLogOut = async() => {
         try {
-            const response = await axios.post("/api/v1/user/logout", token, {
+            const response = await api.post("/api/v1/user/logout", token, {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${token}`, 

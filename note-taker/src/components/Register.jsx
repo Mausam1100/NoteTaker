@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import toast from 'react-hot-toast';
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
+import api from './api';
 
 function Register() {
   const navigate = useNavigate()
@@ -31,7 +31,7 @@ function Register() {
     e.preventDefault()
 
     try {
-      const response = await axios.post('/api/v1/user/register', formData)
+      const response = await api.post('/api/v1/user/register', formData)
       navigate('/login')
       toast.success(response.data.message)
     } catch (error) {

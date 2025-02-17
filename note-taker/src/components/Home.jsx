@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import api from './api';
 
 function Home() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -26,8 +26,8 @@ function Home() {
         e.preventDefault()
         try {
             const response = editId
-                ? await axios.put(`/api/v1/user/save-note/${editId}`, formData)
-                : await axios.post('/api/v1/user/save-note', formData)
+                ? await api.put(`/api/v1/user/save-note/${editId}`, formData)
+                : await api.post('/api/v1/user/save-note', formData)
             toast.success(response.data.message)
             setFormData({
                 topic: "",
