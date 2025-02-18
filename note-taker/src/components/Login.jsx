@@ -6,7 +6,7 @@ import { UserContext } from '../App';
 import api from './api';
 
 
-function Login() {
+function Login({loadingBarRef}) {
   const {setIsLogin} = useContext(UserContext)
   const [formData, setFormData] = useState({
     emailUsername: "",
@@ -33,18 +33,21 @@ function Login() {
     e.preventDefault()
 
     try {
+      loadingBarRef.current.continuousStart()
       const response = await api.post("/api/v1/user/login", formData)
 
       if (response.data.data.accessToken) {
         setIsLogin(true)
         localStorage.setItem("accessToken", JSON.stringify(response.data.data.accessToken))
         toast.success(response.data.message)
+        loadingBarRef.current.complete()
         navigate('/')
       }
     } catch (error) {
       toast.error(error.response.data.error.message)
+      loadingBarRef.current.complete()
       console.log(error);
-    }
+    } 
   }
 
   return (
