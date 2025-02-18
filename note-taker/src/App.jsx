@@ -14,7 +14,7 @@ const UserContext = createContext()
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
-  const [progress, setProgress] = useState(50);
+  const [progress, setProgress] = useState(0);
 
   // Check if user is already logged or not
   useEffect(() => {
