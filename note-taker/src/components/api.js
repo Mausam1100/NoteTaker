@@ -2,7 +2,8 @@ import axios  from "axios";
 
 const api = axios.create({
     baseURL: 'https://notetaker-server.onrender.com',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include'
 })
 
 api.interceptors.request.use(
