@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Search, Pencil, SquarePen, Eye, Copy, Trash2 } from "lucide-react";
 import moment from 'moment'
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
 import api from './api';
+import { UserContext } from '../App';
 
 function Notes() {
+    const {setProgress} = useContext(UserContext)
     const [notes, setNotes] = useState([])
     const [search, setSearch] = useState('')
     const [showModal, setShowModal] = useState(false)
@@ -14,10 +16,14 @@ function Notes() {
 
     useEffect(() => {
         const fetchData = async() => {
+            setProgress(20)
             try {
               const response = await api.get('/api/v1/user/notes')
+              setProgress(60)
               setNotes(response.data.data);
+              setProgress(100)
             } catch (error) {
+                setProgress(100)
               console.log(error);
             }
         }

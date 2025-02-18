@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import api from './api';
+import { UserContext } from '../App';
 
 function Home() {
+    const {setProgress} = useContext(UserContext)
     const [searchParams, setSearchParams] = useSearchParams()
     const editId = searchParams.get("noteId")
     const location = useLocation()
@@ -24,16 +26,20 @@ function Home() {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        setProgress(20)
         try {
             const response = editId
                 ? await api.put(`/api/v1/user/save-note/${editId}`, formData)
                 : await api.post('/api/v1/user/save-note', formData)
+            setProgress(50)
             toast.success(response.data.message)
             setFormData({
                 topic: "",
                 description: ""
             })
+            setProgress(100)
         } catch (error) {
+            setProgress(100)
             toast.error(error.response.data.error.message)
             console.log(error);
         }

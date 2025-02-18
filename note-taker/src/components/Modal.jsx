@@ -6,21 +6,24 @@ import api from './api';
 
 function Modal({setShowModal}) {
     const navigate = useNavigate()
-    const {setIsLogin} = useContext(UserContext)
-    const token = localStorage.getItem("accessToken")
+    const {setIsLogin, setProgress} = useContext(UserContext)
 
     const handleLogOut = async() => {
+        setProgress(20)
         try {
             const response = await api.post("/api/v1/user/logout", {})
-            
+            setProgress(50)
             if (response.data.success) {
                 setIsLogin(false)
                 localStorage.removeItem("accessToken")
+                setProgress(70)
                 navigate('/login')
                 toast.success(response.data.message)
                 setShowModal(false)
+                setProgress(100)
             }
         } catch (error) {
+            setProgress(100)
             if (error.response && error.response.data && error.response.data.error) {
                 toast.error(error.response.data.error.message);
                 console.log(error.response);

@@ -1,20 +1,25 @@
 import React, { useContext } from 'react'
 import api from './api'
 import toast from 'react-hot-toast';
+import { UserContext } from '../App';
 
 function DeleteModal({setShowModal, deleteId, setNotes}) {
+    const {setProgress} = useContext(UserContext)
     const handleDelete = async() => {
+        setProgress(20)
         try {
             const response = await api.delete(`/api/v1/user/delete-note/${deleteId}`)
-
+            setProgress(60)
             if(response.status === 200) {
                 setNotes((prevNote) => {
                     return prevNote.filter((note) => note._id !== deleteId)
                 })
+                setProgress(100)
                 toast.success(response.data.message)
                 setShowModal(false)
             }
         } catch (error) {
+            setProgress(100)
             toast.error(error.response.data.error.message)
         }
     }

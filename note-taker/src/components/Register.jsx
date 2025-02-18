@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast';
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import api from './api';
+import { UserContext } from '../App';
 
 function Register() {
+  const {setProgress} = useContext(UserContext)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     fullName: "",
@@ -29,13 +31,17 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setProgress(20)
 
     try {
       const response = await api.post('/api/v1/user/register', formData)
+      setProgress(60)
       navigate('/login')
       toast.success(response.data.message)
+      setProgress(100)
     } catch (error) {
       toast.error(error.response.data.error.message)
+      setProgress(100)
       console.log(error);
     }
 
