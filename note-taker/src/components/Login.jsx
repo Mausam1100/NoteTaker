@@ -48,7 +48,7 @@ function Login() {
       }
     } catch (error) {
       toast.error(error.response.data.error.message)
-      setProgress(0)
+      setProgress(100)
       console.log(error);
     } 
   }
