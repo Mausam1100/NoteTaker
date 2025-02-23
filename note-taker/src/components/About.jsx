@@ -14,7 +14,7 @@ const About = () => {
       </header>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex justify-center">
             <FaStickyNote className="text-5xl text-blue-500 mb-6" />
           </div>
@@ -26,7 +26,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex justify-center">
             <FaLightbulb className="text-5xl text-yellow-500 mb-6" />
           </div>
@@ -38,7 +38,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex justify-center">
             <FaUsers className="text-5xl text-green-500 mb-6" />
           </div>
