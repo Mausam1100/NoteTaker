@@ -60,7 +60,7 @@ function Home() {
     <div>
         <div className='w-[80%] m-auto max-w-[1000px]'>
             <div>
-                <h1 className='pt-10 pb-5'>Create New Note</h1>
+                <h1 className='pt-10 pb-5'>{editId? 'Update Your Note': 'Create New Note'}</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="topic">
                         <div className='pb-2'>Topic:</div>
