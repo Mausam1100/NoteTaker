@@ -57,30 +57,31 @@ function Register() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="fullname">
                 <div className='py-2'>Full Name </div>
-                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' placeholder='Full Name' onChange={handleChange} value={formData.fullName} name='fullName' id='fullname' required/>
+                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' placeholder='Full Name' onChange={handleChange} value={formData.fullName} name='fullName' id='fullname' required/>
               </label>
 
               <label htmlFor="username">
                 <div className='py-2'>Username </div>
-                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' placeholder='Username' onChange={handleChange} value={formData.username} name='username' id='username' required/>
+                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' placeholder='Username' onChange={handleChange} value={formData.username} name='username' id='username' required/>
               </label>
 
               <label htmlFor="email">
                 <div className='py-2'>Email Address</div>
-                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' placeholder='Email Address' onChange={handleChange} value={formData.email} name='email' id='email' required/>
+                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' placeholder='Email Address' onChange={handleChange} value={formData.email} name='email' id='email' required/>
               </label>
 
               <label htmlFor="password">
                 <div className='py-2'>Password</div>
                 <div className='relative'>
-                  <input type={showPassword? "text": "password"} className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' placeholder='Password' onChange={handleChange} value={formData.password} name='password' id='password' required/>
+                  <input type={showPassword? "text": "password"} className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' placeholder='Password' onChange={handleChange} value={formData.password} name='password' id='password' required/>
 
                   {showPassword? <EyeOff onClick={togglePassword} className='absolute top-[50%] search right-3 cursor-pointer'size={20} color='#787878' strokeWidth={1.75} />:
                   <Eye onClick={togglePassword} className='absolute top-[50%] search right-3 cursor-pointer'size={20} color='#787878' strokeWidth={1.75} />}
 
                 </div>
               </label>
-              <button type='submit' className='button w-full py-3 mt-6 cursor-pointer'>Register</button>
+              <button type='submit' className='button w-full py-3 mt-4 cursor-pointer'>Register</button>
+              <p className='text-center pt-4 text-sm'>Already have an account? <span onClick={() => navigate('/login')} className='hover:text-[#6164fa] underline text-[#617AFA] cursor-pointer'>Sign in</span></p>
             </form>
           </div>
           <div>

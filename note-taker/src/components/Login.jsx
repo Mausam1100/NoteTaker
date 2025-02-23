@@ -64,19 +64,24 @@ function Login() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="email">
                 <div className='py-2'>Email or username </div>
-                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' onChange={handleChange} value={formData.emailUsername} name="emailUsername" placeholder='Email or username' id='emailUsername' required />
+                <input type="text" className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' onChange={handleChange} value={formData.emailUsername} name="emailUsername" placeholder='Email or username' id='emailUsername' required />
               </label>
               <label htmlFor="password">
                 <div className='py-2'>Password</div>
                 <div className='relative'>
-                  <input type={showPassword? "text": "password"} className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-800 rounded-xl block border-gray-400' onChange={handleChange} value={formData.password} name='password' placeholder='Password' id='password' required />
+                  <input type={showPassword? "text": "password"} className='px-3 py-2 w-full border-[1px] mb-3 placeholder:text-gray-400 rounded-xl block border-gray-400' onChange={handleChange} value={formData.password} name='password' placeholder='Password' id='password' required />
                   
                   {showPassword? <EyeOff onClick={togglePassword} className='absolute top-[50%] search right-3 cursor-pointer'size={20} color='#787878' strokeWidth={1.75} />:
                   <Eye onClick={togglePassword} className='absolute top-[50%] search right-3 cursor-pointer'size={20} color='#787878' strokeWidth={1.75} />}
 
                 </div>
               </label>
+              <label htmlFor="remember" className='flex gap-x-2.5'>
+                <input  id='remember' type="checkbox" />
+                <p>Remember me?</p>
+              </label>
               <button type='submit' className='button w-full py-3 mt-6 cursor-pointer'>Login</button>
+              <p className='text-center pt-4 text-sm'>Don't have an account? <span onClick={() => navigate('/register')} className='hover:text-[#6164fa] underline text-[#617AFA] cursor-pointer'>Sign up</span></p>
             </form>
           </div>
           <div>
