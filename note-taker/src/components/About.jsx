@@ -1,26 +1,59 @@
 import React from 'react';
+import { FaStickyNote, FaLightbulb, FaUsers } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-65px)] bg-gray-100 p-6">
-      <div className="max-w-2xl bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">About NoteTaker</h1>
-        <p className="text-lg text-gray-600 mb-4">
-          Welcome to <strong className="text-blue-500">NoteTaker</strong>, your personal space for organizing and storing your thoughts, ideas, and notes. 
-          Our mission is to provide a simple, secure, and intuitive platform for you to manage your notes effortlessly.
+    <div className="min-h-[calc(100vh-65px)] bg-white text-gray-800 flex flex-col items-center justify-center py-12 px-4">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          About NoteTaker
+        </h1>
+        <p className="text-l text-gray-600">
+          Your go-to platform for organizing thoughts, ideas, and tasks.
         </p>
-        <p className="text-lg text-gray-600 mb-4">
-          With NoteTaker, you can create topics, add notes, and access them anytime, anywhere. Whether you're a student, 
-          professional, or just someone who loves jotting down ideas, NoteTaker is designed to make your life easier.
-        </p>
-        <p className="text-lg text-gray-600 mb-4">
-          Our platform is built with privacy in mind. Your notes are securely stored and accessible only to you. 
-          Simply log in to your account, and all your notes will be right at your fingertips.
-        </p>
-        <p className="text-lg text-gray-600">
-          Thank you for choosing NoteTaker. Start organizing your thoughts today and make note-taking a breeze!
-        </p>
-      </div>
+      </header>
+
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="flex justify-center">
+            <FaStickyNote className="text-5xl text-blue-500 mb-6" />
+          </div>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Simple & Intuitive
+          </h2>
+          <p className="text-gray-600">
+            NoteTaker is designed to be easy to use, so you can focus on what matters most—your ideas.
+          </p>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="flex justify-center">
+            <FaLightbulb className="text-5xl text-yellow-500 mb-6" />
+          </div>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Boost Your Productivity
+          </h2>
+          <p className="text-gray-600">
+            Organize your notes, set reminders, and never miss a deadline again.
+          </p>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="flex justify-center">
+            <FaUsers className="text-5xl text-green-500 mb-6" />
+          </div>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Built for Everyone
+          </h2>
+          <p className="text-gray-600">
+            Whether you're a student, professional, or creative, NoteTaker adapts to your needs.
+          </p>
+        </div>
+      </section>
+
+      <footer className="mt-16 text-center text-gray-600">
+        <p>© 2023 NoteTaker. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
