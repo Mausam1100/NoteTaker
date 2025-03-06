@@ -246,7 +246,7 @@ const uploadProfile = asyncHandler(async(req, res) => {
             return ApiError(res, "Couldn't upload image")
         }
 
-        const profilePicUrl = profilePic.secure_urlurl
+        const profilePicUrl = profilePic.secure_url
 
         user.profilePic = profilePicUrl
         await user.save()
