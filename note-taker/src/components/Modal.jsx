@@ -16,6 +16,7 @@ function Modal({setShowModal}) {
             if (response.data.success) {
                 setIsLogin(false)
                 localStorage.removeItem("accessToken")
+                localStorage.removeItem("savedProfileUrl")
                 setProgress(70)
                 navigate('/login')
                 toast.success(response.data.message)

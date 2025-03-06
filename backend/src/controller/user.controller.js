@@ -3,6 +3,8 @@ const ApiError = require('../utils/apiError')
 const ApiResponse = require('../utils/apiResponse')
 const User = require('../model/user.model')
 const jwt = require('jsonwebtoken')
+const uploadOnCloudinary = require("../utils/cloudinary")
+const cloudinary = require('cloudinary').v2
 
 const generateAccessAndRefreshToken = async(userId) => {
     try {
@@ -100,6 +102,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
         sameSite: "None",
         secure: true
     }
+    console.log(loggedUser);
 
     res.status(200)
     .cookie("accessToken", accessToken, option)
@@ -226,6 +229,39 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     )
 })
 
+const uploadProfile = asyncHandler(async(req, res) => {
+    try {
+        const profilePicPath = req.file?.path
+        if(!profilePicPath) {
+            return ApiError(res, "Image not found")
+        }
+
+        const user = await User.findById(req.user._id)
+        if(user.profilePic) {
+            const publicId = user.profilePic.split("/").pop().split(".")[0]
+            await cloudinary.uploader.destroy(publicId)
+        }else{
+            return ApiError(res, "Something went wrong")
+        }
+
+        const profilePic = await uploadOnCloudinary(profilePicPath)
+        if(!profilePic) {
+            return ApiError(res, "Couldn't upload image")
+        }
+
+        const profilePicUrl = profilePic.url
+
+        user.profilePic = profilePicUrl
+        await user.save()
+
+        res.status(200)
+        .json(new ApiResponse(200, profilePicUrl, "Image uploaded successfully"))
+    } catch (error) {
+        console.log("Error on uploadProfile controller", error);
+        return ApiError(res, "Couldn't upload image")
+    }
+})
 
 
-module.exports = {registerUser, loginUser, logOut, refreshAccessToken, changePassword, getCurrentUser}
+
+module.exports = {registerUser, loginUser, logOut, refreshAccessToken, changePassword, getCurrentUser, uploadProfile}

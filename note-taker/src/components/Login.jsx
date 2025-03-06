@@ -39,6 +39,7 @@ function Login() {
       if (response.data.data.accessToken) {
         setIsLogin(true)
         localStorage.setItem("accessToken", JSON.stringify(response.data.data.accessToken))
+        localStorage.setItem("savedProfileUrl", response.data.data.user.profilePic)
         setProgress(70)
         toast.success(response.data.message)
         setProgress(100)
