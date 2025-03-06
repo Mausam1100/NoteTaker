@@ -3,7 +3,6 @@ const ApiError = require('../utils/apiError')
 const ApiResponse = require('../utils/apiResponse')
 const Note = require('../model/note.model')
 const { default: mongoose } = require("mongoose")
-const { findById } = require('../model/user.model')
 
 const saveNote = asyncHandler(async (req, res) => {
     const {topic, description} = req.body
@@ -13,7 +12,7 @@ const saveNote = asyncHandler(async (req, res) => {
         return ApiError(res, "Topic is missing", 400)
     }
 
-    const sameTopic = await Note.findOne({topic})
+    const sameTopic = await Note.findOne({topic, userId})
     if (sameTopic) {
         return ApiError(res, "Same topic already existed", 400)
     }
