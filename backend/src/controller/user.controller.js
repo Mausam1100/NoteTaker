@@ -5,6 +5,7 @@ const User = require('../model/user.model')
 const jwt = require('jsonwebtoken')
 const uploadOnCloudinary = require("../utils/cloudinary")
 const cloudinary = require('cloudinary').v2
+const fs = require('fs')
 
 const generateAccessAndRefreshToken = async(userId) => {
     try {
@@ -29,7 +30,6 @@ const generateAccessAndRefreshToken = async(userId) => {
 const registerUser = asyncHandler(async (req, res) => {
 
     const {fullName, username, email, password} = req.body
-    console.log("Email", email);
 
     if (
         [fullName, username, email, password].some((field) =>{
@@ -102,7 +102,6 @@ const loginUser = asyncHandler(async (req, res, next) => {
         sameSite: "None",
         secure: true
     }
-    console.log(loggedUser);
 
     res.status(200)
     .cookie("accessToken", accessToken, option)
@@ -240,8 +239,6 @@ const uploadProfile = asyncHandler(async(req, res) => {
         if(user.profilePic) {
             const publicId = user.profilePic.split("/").pop().split(".")[0]
             await cloudinary.uploader.destroy(publicId)
-        }else{
-            return ApiError(res, "Something went wrong")
         }
 
         const profilePic = await uploadOnCloudinary(profilePicPath)
