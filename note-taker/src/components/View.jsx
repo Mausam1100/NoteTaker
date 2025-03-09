@@ -29,7 +29,7 @@ function View() {
           </h1>
           <form className="space-y-6">
             <div>
-              <label htmlFor="topic" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="topic" className="md:text-base block text-sm font-medium text-gray-700">
                 Topic:
               </label>
               <div className="flex items-center justify-between gap-4 mt-2">
@@ -51,7 +51,7 @@ function View() {
             </div>
 
             <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="description" className="md:text-base block text-sm font-medium text-gray-700">
                 Description:
               </label>
               <textarea

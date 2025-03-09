@@ -70,7 +70,7 @@ function Profile() {
   return (
     <div className="min-h-[calc(100vh-66px)] bg-gradient-to-r from-blue-50 to-purple-50 flex md:items-center justify-center py-5 md:py-10">
       <div className="w-[92%] mt-5 md:mt-0 pb-14 h-full md:w-full max-w-[900px] bg-white rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-300 hover:scale-105">
-        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-3 md:pb-6 text-center">
+        <h2 className="md:text-3xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-3 md:pb-6 text-center">
           User Details
         </h2>
         <div className="flex flex-col items-center space-y-6">
@@ -91,13 +91,13 @@ function Profile() {
 
           <div className="w-full max-w-[400px] space-y-4">
             <div>
-              <label htmlFor="fullname" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="fullname" className="block md:text-base text-sm font-medium text-gray-700">
                 Full Name
               </label>
               <div className="relative mt-1">
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-500 bg-gray-100"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 bg-gray-100"
                   placeholder={user.fullName}
                   disabled
                 />
@@ -106,13 +106,13 @@ function Profile() {
             </div>
 
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="username" className="block md:text-base text-sm font-medium text-gray-700">
                 Username
               </label>
               <div className="relative mt-1">
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-500 bg-gray-100"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 bg-gray-100"
                   placeholder={user.username}
                   disabled
                 />
@@ -121,13 +121,13 @@ function Profile() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block md:text-base text-sm font-medium text-gray-700">
                 Email Address
               </label>
               <div className="relative mt-1">
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-500 bg-gray-100"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 bg-gray-100"
                   placeholder={user.email}
                   disabled
                 />

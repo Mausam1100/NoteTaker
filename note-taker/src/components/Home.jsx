@@ -64,7 +64,7 @@ function Home() {
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="topic" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="topic" className="block md:text-base text-sm font-medium text-gray-700">
                 Topic:
               </label>
               <div className="flex items-center justify-between gap-4 mt-1 md:mt-2">
@@ -88,7 +88,7 @@ function Home() {
             </div>
 
             <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="description" className="md:text-base block text-sm font-medium text-gray-700">
                 Description:
               </label>
               <textarea
