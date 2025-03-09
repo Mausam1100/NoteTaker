@@ -109,10 +109,10 @@ function NavBar() {
         {showMenu && (
           <div className='bg-white border-t-[1px] border-gray-300 absolute top-full z-10 left-0 right-0 h-[calc(100vh-57px)] px-6 py-5'>
            <ul className='flex flex-col gap-y-4'>
-             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink to={'/'}>Home</NavLink></li>
-             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink to={'/notes'}>Notes</NavLink></li>
-             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink to={'/about'}>About</NavLink></li>
-             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink to={'/profile'}>Profile</NavLink></li>
+             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink className="w-full inline-block" to={'/'}>Home</NavLink></li>
+             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink className="w-full inline-block" to={'/notes'}>Notes</NavLink></li>
+             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink className="w-full inline-block" to={'/about'}>About</NavLink></li>
+             <li onClick={() => setShowMenu(false)} className='text-base border-gray-300 font-medium border-b-[1px] pb-3 w-full'><NavLink className="w-full inline-block" to={'/profile'}>Profile</NavLink></li>
            </ul>
            {isLogin ? (
             <button

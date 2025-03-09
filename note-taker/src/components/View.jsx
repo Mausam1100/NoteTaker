@@ -43,7 +43,7 @@ function View() {
                 <button
                 type='button'
                   onClick={() => handleCopy(note.description)}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                  className="hidden md:flex px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 items-center justify-center"
                 >
                   <Copy size={20} color="white" strokeWidth={1.75} />
                 </button>
@@ -62,6 +62,13 @@ function View() {
                 disabled
               ></textarea>
             </div>
+            <button
+                type='button'
+                  onClick={() => handleCopy(note.description)}
+                  className="w-full md:hidden flex px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 items-center justify-center"
+                >
+                  <Copy size={20} color="white" strokeWidth={1.75} />
+                </button>
           </form>
         </div>
       </div>
