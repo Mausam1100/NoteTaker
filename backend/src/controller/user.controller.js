@@ -192,10 +192,10 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 })
 
 const changePassword = asyncHandler(async(req, res) => {
-    const {oldPassword, newPassword} = req.body
+    const {oldPassword, newPassword, confirmPassword} = req.body
 
-    if(!oldPassword && !newPassword) {
-        return ApiError(res, "Old password and new password are required")
+    if(!oldPassword || !newPassword || !confirmPassword) {
+        return ApiError(res, "Old password, new password and confirm password are required")
     }
 
     const user = await User.findById(req.user._id)
@@ -203,6 +203,10 @@ const changePassword = asyncHandler(async(req, res) => {
 
     if (!isPasswordCorrect) {
         return ApiError(res, "Incorrect password")
+    }
+
+    if(newPassword !== confirmPassword) {
+        return ApiError(res, "New password and confirm password didn't match")
     }
 
     user.password = newPassword

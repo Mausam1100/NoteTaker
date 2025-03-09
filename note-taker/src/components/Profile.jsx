@@ -6,6 +6,7 @@ import moment from 'moment';
 import api from './api';
 import toast from 'react-hot-toast';
 import { UserContext } from '../App';
+import { Link } from 'react-router-dom';
 
 function Profile() {
   const { setProgress } = useContext(UserContext);
@@ -69,11 +70,11 @@ function Profile() {
 
   return (
     <div className="min-h-[calc(100vh-66px)] bg-gradient-to-r from-blue-50 to-purple-50 flex md:items-center justify-center py-5 md:py-10">
-      <div className="w-[92%] mt-5 md:mt-0 pb-14 h-full md:w-full max-w-[900px] bg-white rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-300 hover:scale-105">
-        <h2 className="md:text-3xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-3 md:pb-6 text-center">
+      <div className="w-[92%] mt-5 md:mt-0 pb-14 h-full md:w-full max-w-[900px] bg-white rounded-xl shadow-2xl p-6 md:p-6 transform transition-all duration-300 hover:scale-105">
+        <h2 className="md:text-3xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-3 md:pb-3 text-center">
           User Details
         </h2>
-        <div className="flex flex-col items-center space-y-6">
+        <div className="flex flex-col items-center space-y-2">
           <div className="w-32 h-32 rounded-full border-2 border-gray-300 relative">
             <img
               onClick={handleImageClick}
@@ -89,7 +90,7 @@ function Profile() {
             </div>
           </div>
 
-          <div className="w-full max-w-[400px] space-y-4">
+          <div className="w-full max-w-[400px] space-y-4 md:space-y-3">
             <div>
               <label htmlFor="fullname" className="block md:text-base text-sm font-medium text-gray-700">
                 Full Name
@@ -158,11 +159,16 @@ function Profile() {
                 ref={profileInput}
                 style={{ display: 'none' }}
               />
+              <Link
+                to={'/change-password'}
+                className="mt-3 w-full inline-block text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105" >
+                Change Password
+              </Link>
               <button
                 type="submit"
-                className="mt-3 w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                className="mt-3 w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
               >
-                Save
+                Save Image
               </button>
             </form>
           </div>

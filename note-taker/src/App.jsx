@@ -9,6 +9,7 @@ import About from "./components/About";
 import Profile from "./components/Profile";
 import View from "./components/View";
 import TopLoadingBar from "react-top-loading-bar";
+import ChangePassword from "./components/ChangePassword";
 
 const UserContext = createContext()
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={isLogin? <Profile/>: <Navigate to="/login"/>} />
           <Route path="/view/:id" element={isLogin? <View/>: <Navigate to="/login"/>} />
+          <Route path="/change-password" element={isLogin? <ChangePassword/>: <Navigate to="/login"/>} />
         </Routes>
       </UserContext.Provider>
     </Router>
