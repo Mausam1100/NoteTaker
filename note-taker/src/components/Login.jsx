@@ -51,13 +51,13 @@ function Login() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-66px)] flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 space-y-6 transform transition-all duration-300 hover:scale-105">
+    <div className="min-h-[calc(100vh-66px)] flex md:items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
+      <div className="md:w-full h-full mt-14 md:mt-0 w-[92%] my-4 max-w-md bg-white rounded-xl shadow-2xl p-6 md:p-8 space-y-6 transform transition-all duration-300 hover:scale-105">
         <div className="text-center space-y-3">
-          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <h1 className="md:text-3xl text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
             Welcome To NoteTaker
           </h1>
-          <p className="text-gray-600">The only platform you need for your personal and professional growth.</p>
+          <p className="text-gray-600 text-sm md:text-base">The only platform you need for your personal and professional growth.</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -66,7 +66,7 @@ function Login() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="mt-1 block w-full md:px-4 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               onChange={handleChange}
               value={formData.emailUsername}
               name="emailUsername"
@@ -82,7 +82,7 @@ function Login() {
             <div className="relative mt-1">
               <input
                 type={showPassword ? 'text' : 'password'}
-                className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="block w-full md:px-4 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 onChange={handleChange}
                 value={formData.password}
                 name="password"

@@ -13,7 +13,7 @@ import TopLoadingBar from "react-top-loading-bar";
 const UserContext = createContext()
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false)
   const [progress, setProgress] = useState(0);
 
   // Check if user is already logged or not
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <Router>
-      <UserContext.Provider value={{isLogin, setIsLogin, setProgress }}>
+      <UserContext.Provider value={{isLogin, setIsLogin, setProgress, showMenu, setShowMenu }}>
         <NavBar setIsLogin={setIsLogin} />
         <TopLoadingBar color="#1877f2" style={{height: '2.7px'}} progress={progress} onLoaderFinished={() => setProgress(0)} />
         <Routes>

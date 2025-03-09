@@ -3,12 +3,12 @@ import { FaStickyNote, FaLightbulb, FaUsers } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <div className="min-h-[calc(100vh-65px)] bg-gradient-to-r from-blue-50 to-purple-50 flex flex-col items-center justify-center py-12 px-4">
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
+    <div className="min-h-[calc(100vh-65px)] bg-gradient-to-r from-blue-50 to-purple-50 flex flex-col items-center justify-center md:py-12 py-8 px-4">
+      <header className="text-center md:mb-12 mb-8">
+        <h1 className="md:text-4xl text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
           About NoteTaker
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="md:text-lg text-base text-gray-600">
           Your go-to platform for organizing thoughts, ideas, and tasks.
         </p>
       </header>

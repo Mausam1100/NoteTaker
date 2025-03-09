@@ -6,7 +6,7 @@ import api from './api';
 
 function Modal({ setShowModal }) {
     const navigate = useNavigate();
-    const { setIsLogin, setProgress } = useContext(UserContext);
+    const { setIsLogin, setProgress, setShowMenu } = useContext(UserContext);
 
     const handleLogOut = async () => {
         setProgress(20);
@@ -19,12 +19,14 @@ function Modal({ setShowModal }) {
                 localStorage.removeItem("savedProfileUrl");
                 setProgress(70);
                 navigate('/login');
+                setShowMenu(false)
                 toast.success(response.data.message);
                 setShowModal(false);
                 setProgress(100);
             }
         } catch (error) {
             setProgress(100);
+            setShowMenu(false)
             if (error.response && error.response.data && error.response.data.error) {
                 toast.error(error.response.data.error.message);
                 console.log(error.response);

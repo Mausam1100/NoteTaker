@@ -56,10 +56,10 @@ function Home() {
   }, [editId]);
 
   return (
-    <div className="min-h-[calc(100vh-65px)] flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 py-10">
-      <div className="w-[80%] max-w-[1000px] bg-white rounded-xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+    <div className="min-h-[calc(100vh-65px)] flex md:items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 py-5 md:py-10">
+      <div className="md:w-[80%] h-full w-[92%] mt-5 md:mt-0 max-w-[1000px] bg-white rounded-xl shadow-2xl md:p-8 p-6 pb-14 md:pb-4 transform transition-all duration-300 hover:scale-105">
         <div>
-          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-5">
+          <h1 className="md:text-3xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-5">
             {editId ? 'Update Your Note' : 'Create New Note'}
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -67,20 +67,20 @@ function Home() {
               <label htmlFor="topic" className="block text-sm font-medium text-gray-700">
                 Topic:
               </label>
-              <div className="flex items-center justify-between gap-4 mt-2">
+              <div className="flex items-center justify-between gap-4 mt-1 md:mt-2">
                 <input
                   type="text"
                   placeholder="What's the topic?"
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="flex-1 md:px-4 px-2 py-1.5 md:py-2 border md:placeholder:text-base placeholder:text-sm border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   id="topic"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-8 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                  className="hidden md:inline-block px-8 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
                 >
                   {editId ? 'Update' : 'Save'}
                 </button>
@@ -97,10 +97,16 @@ function Home() {
                 value={formData.description}
                 onChange={handleChange}
                 id="description"
-                className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="mt-1 md:mt-2 md:placeholder:text-base placeholder:text-sm block w-full md:px-4 px-2 md:py-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 rows={10}
               ></textarea>
             </div>
+            <button
+                  type="submit"
+                  className="md:hidden w-full inline-block px-8 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                >
+                  {editId ? 'Update' : 'Save'}
+                </button>
           </form>
         </div>
       </div>

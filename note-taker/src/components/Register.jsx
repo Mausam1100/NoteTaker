@@ -47,10 +47,10 @@ function Register() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-66px)] flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
-      <div className="w-full max-w-[33%] bg-white rounded-xl shadow-2xl p-7 space-y-6 transform transition-all duration-300 hover:scale-105">
+    <div className="min-h-[calc(100vh-66px)] flex md:items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
+      <div className="md:w-full h-full mt-14 md:mt-0 w-[92%] my-4 max-w-md bg-white rounded-xl shadow-2xl md:p-7 p-4 space-y-6 transform transition-all duration-300 hover:scale-105">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <h1 className="md:text-2xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
             Create a NoteTaker Account
           </h1>
         </div>

@@ -68,9 +68,9 @@ function Profile() {
   }, []);
 
   return (
-    <div className="min-h-[calc(100vh-66px)] bg-gradient-to-r from-blue-50 to-purple-50 flex items-center justify-center py-10">
-      <div className="w-full max-w-[900px] bg-white rounded-xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
-        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-6 text-center">
+    <div className="min-h-[calc(100vh-66px)] bg-gradient-to-r from-blue-50 to-purple-50 flex md:items-center justify-center py-5 md:py-10">
+      <div className="w-[92%] mt-5 md:mt-0 pb-14 h-full md:w-full max-w-[900px] bg-white rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-300 hover:scale-105">
+        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-3 md:pb-6 text-center">
           User Details
         </h2>
         <div className="flex flex-col items-center space-y-6">

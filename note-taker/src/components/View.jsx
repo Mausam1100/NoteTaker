@@ -21,10 +21,10 @@ function View() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-65px)] bg-gradient-to-r from-blue-50 to-purple-50 flex items-center justify-center py-10">
-      <div className="w-[80%] max-w-[1000px] bg-white rounded-xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+    <div className="min-h-[calc(100vh-65px)] bg-gradient-to-r from-blue-50 to-purple-50 flex md:items-center justify-center py-5 md:py-10">
+      <div className="md:w-[80%] mt-4 md:mt-0 h-full w-[92%] max-w-[1000px] bg-white rounded-xl shadow-2xl md:p-8 p-6 transform transition-all duration-300 hover:scale-105">
         <div>
-          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-5">
+          <h1 className="md:text-3xl text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 pb-5">
             View Note
           </h1>
           <form className="space-y-6">
