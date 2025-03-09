@@ -93,7 +93,7 @@ function Login() {
               <button
                 type="button"
                 onClick={togglePassword}
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                className="hover:bg-transparent absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
               >
                 {showPassword ? (
                   <EyeOff className="h-5 w-5 text-gray-400 cursor-pointer" />
