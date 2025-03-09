@@ -39,14 +39,17 @@ function Notes() {
     navigator.clipboard
       .writeText(description)
       .then(() => {
+        setActiveId(null)
         toast.success('Copied successfully');
       })
       .catch((err) => {
+        setActiveId(null)
         toast.error("Couldn't copy");
       });
   }
 
   function handleDelete(id) {
+    setActiveId(null)
     setShowModal(true);
     setDeleteId(id);
   }
@@ -154,8 +157,8 @@ function Notes() {
                         </div>
                         <li className='w-full'><Link state={notes} to={`/?noteId=${note._id}`} className='flex gap-x-4'><SquarePen size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> Edit</Link></li>
                         <li className='w-full'><Link state={notes} to={`/view/${note._id}`} className='flex gap-x-4'><Eye size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> View</Link></li>
-                        <li className='w-full'><button onClick={() => handleCopy(note.description)} className='flex gap-x-4'><Copy size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> Copy</button></li>
-                        <li className='w-full'><button onClick={() => handleDelete(note._id)} className='flex gap-x-4'><Trash2 size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> Delete</button></li>
+                        <li className='w-full'><button onClick={() => handleCopy(note.description)} className='active:bg-white flex gap-x-4'><Copy size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> Copy</button></li>
+                        <li className='w-full'><button onClick={() => handleDelete(note._id)} className='active:bg-white flex gap-x-4'><Trash2 size={20} className="text-gray-600 hover:text-blue-600" strokeWidth={1.75}/> Delete</button></li>
                       </ul>
                     </div>
                     )}
