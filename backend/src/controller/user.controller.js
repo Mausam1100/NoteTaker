@@ -100,7 +100,9 @@ const loginUser = asyncHandler(async (req, res, next) => {
     const option ={
         httpOnly: true,
         sameSite: "None",
-        secure: true
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000, // Expires in 7 days
+        path: '/', 
     }
 
     res.status(200)
