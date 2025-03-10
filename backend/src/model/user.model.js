@@ -61,8 +61,7 @@ userSchema.methods.generateAccessToken = function() {
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-            // expiresIn: process.env.ACCESS_TOKEN_SECRET_EXPIRY
-            expiresIn: 10
+            expiresIn: process.env.ACCESS_TOKEN_SECRET_EXPIRY
         }
     )
 }
