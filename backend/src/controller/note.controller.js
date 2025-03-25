@@ -116,8 +116,8 @@ const editNote = asyncHandler(async (req, res) => {
             return ApiError(res, "Note not found", 400)
         }
     
-        note.topic = topic || note.topic
-        note.description = description || note.description
+        note.topic = topic
+        note.description = description 
     
         await note.save()
     
